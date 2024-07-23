@@ -1,12 +1,12 @@
 <script>
-	import BackgroundVideo from './components/background1.svelte';
+	 let time = 0;
 </script>
 
 <main>
-  <BackgroundVideo />
-  <div class="content">
-    <h1>Welcome to My Site</h1>
-    <p>This is the content over the video background.</p>
+  <div>
+      <video class="video-background" autoplay muted loop>
+  <source src="public\background1.mp4" type="video/mp4" />
+        </video>
   </div>
 </main>
 
@@ -14,13 +14,5 @@
   main {
     position: relative;
     overflow: hidden;
-  }
-
-  .content {
-    position: relative;
-    z-index: 1;
-    color: white;
-    text-align: center;
-    padding-top: 20%;
   }
 </style>

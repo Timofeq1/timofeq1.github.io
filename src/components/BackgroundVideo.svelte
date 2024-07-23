@@ -12,6 +12,5 @@
 </style>
 
 <video class="video-background" autoplay muted loop>
-  <source src=".\public\background1.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
+  <source src="public\background1.mp4" type="video/mp4" />
 </video>
