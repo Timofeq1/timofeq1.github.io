@@ -1,69 +1,31 @@
 <script>
-	let time = 0;
+  import { Router, Link, Route } from "svelte-routing";
+  import Home from "./routes/Home.svelte";
+  import About from "./routes/About.svelte";
+  import NotFound from './routes/NotFound.svelte';
 </script>
 
-<main>
-	<div class="video-wrapper">
-		<video class="video-background" autoplay muted loop>
-			<source src="/bg1.mp4" type="video/mp4" />
-			Your browser does not support the video tag.
-		</video>
-	</div>
-	<div class="content">
-		<h1>Under development...</h1>
-		<p>Sorry, this page is currently under development</p>
-	</div>
-</main>
+
+
+<Router>
+    <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+    </nav>
+
+  <Route path="/" component={Home} />
+  <Route path="/about" component={About} />
+  <Route path="*" component={NotFound} />
+</Router>
 
 <style>
-	main {
-		position: relative;
-		overflow: hidden;
-		width: 100%;
-		height: 100vh;
-	}
-
-	.video-wrapper {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-	}
-
-	.video-background {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		filter: blur(1px); /* Add blur effect */
-	}
-
-	/* Create an overlay to cover the blurred borders */
-	.video-wrapper::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		box-shadow: inset 0 0 0 5vw rgba(0, 0, 0, 10); /* Adjust the shadow to cover the blurred edges */
-		pointer-events: none;
-	}
-
-	.content {
-		position: relative;
-		z-index: 1;
-		color: white;
-		text-align: center;
-		padding: 2rem;
-		background: rgba(0, 0, 0, 0.6); /* Modify the background color and opacity */
-		border-radius: 3px; /* Add rounded corners */
-		max-width: 600px; /* Center content */
-		margin: 20% auto; /* Center content vertically and horizontally */
-	}
-
+  nav {
+    background-color: #333;
+    padding: 1rem;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+    margin-right: 1rem;
+  }
 </style>
